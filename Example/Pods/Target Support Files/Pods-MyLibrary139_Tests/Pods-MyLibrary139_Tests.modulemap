@@ -1,0 +1,6 @@
+framework module Pods_MyLibrary139_Tests {
+  umbrella header "Pods-MyLibrary139_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
