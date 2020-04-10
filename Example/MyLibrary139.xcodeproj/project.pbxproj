@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		07779103DEFCA50B3617FC08 /* Pods_MyLibrary139_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BF0B07B7F6D3A4160D4311 /* Pods_MyLibrary139_Tests.framework */; };
-		40F0B0C22440A9C700C2C7EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40F0B0C12440A9C700C2C7EF /* Info.plist */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -248,7 +247,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40F0B0C22440A9C700C2C7EF /* Info.plist in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
