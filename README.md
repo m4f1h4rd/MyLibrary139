@@ -29,11 +29,11 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 2. Or you can programmatically create
 
-1) Import LNParallaxTVCell module to your class 
+Import LNParallaxTVCell module to your class 
 ```swift
 import LNParallaxHeader
 ```
-2) Сustomize for yourself
+Сustomize for yourself
 
 ```swift
 func prepareCollectionViewLayout() {
