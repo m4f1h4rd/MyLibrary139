@@ -8,18 +8,35 @@
 
 import UIKit
 
+private enum Constants {
+    
+    enum Height {
+        static let min: CGFloat = 44.0
+        static let indicative: CGFloat = 180.0
+    }
+    
+    enum zIndex {
+        static let `default` = 1024
+        static let min = 1
+        static let max = 2000
+    }
+    
+}
+
 public class LNParallaxHeaderFlowLayout: UICollectionViewFlowLayout {
     
     static public let kind = String(describing: LNParallaxHeaderFlowLayout.self)
 
-    /// Determine header behavior when resizing.
-    public var isAlwaysOnTop = false
+    /// Determine header behavior when resizing
+    public var isAlwaysOnTop = true
     
     /// Mini size of the header when header always on top
-    public var minSize: CGSize = .zero
+    public var minSize = CGSize(width: UIScreen.main.bounds.size.width,
+                                height: Constants.Height.min)
     
     /// Header size without scroll
-    public var indicativeSize: CGSize? {
+    public var indicativeSize = CGSize(width: UIScreen.main.bounds.size.width,
+                                       height: Constants.Height.indicative) {
         didSet{
             invalidateLayout()
         }
@@ -29,14 +46,12 @@ public class LNParallaxHeaderFlowLayout: UICollectionViewFlowLayout {
     
     override public func initialLayoutAttributesForAppearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = super.initialLayoutAttributesForAppearingSupplementaryElement(ofKind: elementKind, at: elementIndexPath)
+        guard var frame = attributes?.frame else { return attributes }
         
-        guard
-            var frame = attributes?.frame,
-            let height = indicativeSize?.height
-        else { return attributes }
-        
-        frame.origin.y += height
+        frame.origin.y += indicativeSize.height
         attributes?.frame = frame
+        
+        itemSize = .zero
         
         return attributes
     }
@@ -50,13 +65,9 @@ public class LNParallaxHeaderFlowLayout: UICollectionViewFlowLayout {
     }
     
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        guard
-            let size = indicativeSize,
-            let width = indicativeSize?.width,
-            let height = indicativeSize?.height,
-            let layoutCollectionView = collectionView
-        else { return nil }
+        guard let layoutCollectionView = collectionView else { return nil }
         
+        let height = indicativeSize.height
         var adjustedRec = rect
         adjustedRec.origin.y -= height
         
@@ -71,35 +82,39 @@ public class LNParallaxHeaderFlowLayout: UICollectionViewFlowLayout {
         var lastCells: [Int: UICollectionViewLayoutAttributes] = [:]
         var isVisible = false
         
-        allItems.forEach { attributes in
-            var frame = attributes.frame
+        allItems.forEach { attribute in
+            var frame = attribute.frame
             frame.origin.y += height
-            attributes.frame = frame
+            attribute.frame = frame
             
-            if attributes.representedElementKind == UICollectionView.elementKindSectionHeader {
-                headers[attributes.indexPath.section] = attributes
-            } else {
-                let currentAttribute = lastCells[attributes.indexPath.section]
-                
-                if currentAttribute == nil || currentAttribute?.indexPath != nil && attributes.indexPath.row > (currentAttribute as AnyObject).indexPath.row {
-                    lastCells[attributes.indexPath.section] = attributes
-                }
-                
-                if attributes.indexPath.item == .zero && attributes.indexPath.section == .zero {
-                    isVisible = true
-                }
+            guard
+                attribute.representedElementKind != UICollectionView.elementKindSectionHeader
+            else {
+                headers[attribute.indexPath.section] = attribute
+                attribute.zIndex = Constants.zIndex.min
+                return
             }
             
-            attributes.zIndex = Constants.zIndex.min
+            let currentAttribute = lastCells[attribute.indexPath.section]
+            
+            if currentAttribute == nil || currentAttribute?.indexPath != nil && attribute.indexPath.row > (currentAttribute as AnyObject).indexPath.row {
+                lastCells[attribute.indexPath.section] = attribute
+            }
+            
+            if attribute.indexPath.item == .zero && attribute.indexPath.section == .zero {
+                isVisible = true
+            }
+            
+            attribute.zIndex = Constants.zIndex.min
         }
         
         isVisible = rect.minY <= .zero ? true : isVisible
         isVisible = isAlwaysOnTop ? true : isVisible
         
-        if isVisible && !CGSize.zero.equalTo(size) {
+        if isVisible && !CGSize.zero.equalTo(indicativeSize) {
             let currentAttribute = LNParallaxHeaderFlowLayoutAttributes(forSupplementaryViewOfKind: LNParallaxHeaderFlowLayout.kind, with: IndexPath(index: .zero))
             var frame = currentAttribute.frame
-            frame.size.width = width
+            frame.size.width = indicativeSize.width
             frame.size.height = height
             
             let maxY = frame.maxY
@@ -107,54 +122,54 @@ public class LNParallaxHeaderFlowLayout: UICollectionViewFlowLayout {
             var y = min(maxY - minSize.height, layoutCollectionView.bounds.origin.y + layoutCollectionView.contentInset.top)
             
             let height = max(.zero, -y + maxY)
-            let maxHeight = size.height
+            let maxHeight = indicativeSize.height
             let minHeight = minSize.height
-            let progressiveness = (height - minHeight) / (maxHeight - minHeight)
+            let offset = (height - minHeight) / (maxHeight - minHeight)
             
-            currentAttribute.progressiveness = progressiveness
+            currentAttribute.offset = offset
             currentAttribute.zIndex = .zero
             
             if isAlwaysOnTop && height <= minSize.height {
-                collectionView.map({ y = $0.contentOffset.y + $0.contentInset.top })
+                collectionView.map { y = $0.contentOffset.y + $0.contentInset.top }
                 currentAttribute.zIndex = Constants.zIndex.max
             }
             
-            currentAttribute.frame = CGRect(x: frame.origin.x, y: y, width: frame.size.width, height: height)
+            currentAttribute.frame = CGRect(x: frame.origin.x,
+                                            y: y,
+                                            width: frame.size.width,
+                                            height: height)
+            
             allItems.append(currentAttribute)
         }
         
         lastCells.forEach { cell in
             let numberOfSection = cell.value.indexPath.section
-            
             var header = headers[numberOfSection]
             
             if header == nil {
                 header = layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: .zero, section: numberOfSection))
                 
-                header.map({ allItems.append($0) })
+                header.map { allItems.append($0) }
             }
             
             guard
                 let attributes = header,
-                let lastCellAttributes = lastCells[numberOfSection]
+                let lastAttributes = lastCells[numberOfSection]
             else { return }
             
-            update(attributes: attributes, lastCellAttributes: lastCellAttributes)
+            update(attributes: attributes, lastAttributes: lastAttributes)
         }
         
         return allItems
     }
     
     override public func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        guard
-            let attributes = super.layoutAttributesForItem(at: indexPath)?.copy() as? UICollectionViewLayoutAttributes,
-            let height = indicativeSize?.height
-        else {
+        guard let attributes = super.layoutAttributesForItem(at: indexPath)?.copy() as? UICollectionViewLayoutAttributes else {
             return nil
         }
-        
+ 
         var frame = attributes.frame
-        frame.origin.y += height
+        frame.origin.y += indicativeSize.height
         attributes.frame = frame
         return attributes
     }
@@ -163,7 +178,7 @@ public class LNParallaxHeaderFlowLayout: UICollectionViewFlowLayout {
         guard collectionView?.superview != nil else { return .zero }
 
         var size = super.collectionViewContentSize
-        indicativeSize.map { size.height += $0.height }
+        size.height += indicativeSize.height
         return size
     }
     
@@ -177,16 +192,14 @@ public class LNParallaxHeaderFlowLayout: UICollectionViewFlowLayout {
 
 private extension LNParallaxHeaderFlowLayout {
         
-    func update(attributes: UICollectionViewLayoutAttributes, lastCellAttributes: UICollectionViewLayoutAttributes) {
+    func update(attributes: UICollectionViewLayoutAttributes, lastAttributes: UICollectionViewLayoutAttributes) {
         guard let collectionView = collectionView else { return }
         
+        var origin = attributes.frame.origin
         attributes.zIndex = Constants.zIndex.default
         attributes.isHidden = false
         
-        var origin = attributes.frame.origin
-        
-        let sectionMaxY = lastCellAttributes.frame.maxY - attributes.frame.size.height
-
+        let sectionMaxY = lastAttributes.frame.maxY - attributes.frame.size.height
         let bounds = collectionView.bounds
         var y = bounds.maxY - bounds.height + collectionView.contentInset.top
         
@@ -197,17 +210,11 @@ private extension LNParallaxHeaderFlowLayout {
         let maxY = min(max(y, attributes.frame.origin.y), sectionMaxY)
         origin.y = maxY
         
-        attributes.frame = CGRect(x: origin.x, y: origin.y, width: attributes.frame.size.width, height: attributes.frame.size.height)
+        let attributesSize = attributes.frame.size
+        attributes.frame = CGRect(x: origin.x,
+                                  y: origin.y,
+                                  width: attributesSize.width,
+                                  height: attributesSize.height)
     }
-    
-    // MARK: - Constants
 
-    enum Constants {
-        enum zIndex {
-            static let `default` = 1024
-            static let min = 1
-            static let max = 2000
-        }
-    }
-    
 }

@@ -10,7 +10,7 @@ import UIKit
 
 final class LNParallaxHeaderFlowLayoutAttributes: UICollectionViewLayoutAttributes {
     
-    var progressiveness: CGFloat = 1.0
+    var offset: CGFloat = 1.0
     
     override var zIndex: Int{
         didSet{
@@ -23,7 +23,7 @@ final class LNParallaxHeaderFlowLayoutAttributes: UICollectionViewLayoutAttribut
             return self
         }
         
-        copy.progressiveness = progressiveness
+        copy.offset = offset
         
         return copy
     }

@@ -9,13 +9,6 @@
 import UIKit
 import MyLibrary139
 
-private enum Constants {
-    enum HeaderHeight {
-        static let indicative: CGFloat = 180.0
-        static let min: CGFloat = 64.0
-    }
-}
-
 final class ViewController: UIViewController {
 
     @IBOutlet weak private var collectionView: UICollectionView!
@@ -70,13 +63,13 @@ private extension ViewController {
     
     func prepareCollectionViewLayout() {
         guard let layout = collectionView.collectionViewLayout as? LNParallaxHeaderFlowLayout else { return }
-        
+
         let width = UIScreen.main.bounds.size.width
-        layout.indicativeSize = CGSize(width: width, height: Constants.HeaderHeight.indicative)
-        layout.minSize = CGSize(width: width, height: Constants.HeaderHeight.min)
         layout.itemSize = CGSize(width: width, height: layout.itemSize.height)
-        layout.isAlwaysOnTop = true
-        
+        /*layout.minSize = CGSize(width: width, height: 64.0)
+        layout.indicativeSize = CGSize(width: width, height: 300.0)
+        layout.isAlwaysOnTop = true*/
+
         collectionView.collectionViewLayout = layout
     }
     
