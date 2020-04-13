@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		048D87D860DB6CFE7DCDCEBB94B5A8C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		4013DBF924442D9300B0585C /* LNParallaxHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013DBF324442D2000B0585C /* LNParallaxHeaderFlowLayout.swift */; };
+		4013DBFA24442D9300B0585C /* LNParallaxHeaderFlowLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013DBF424442D2000B0585C /* LNParallaxHeaderFlowLayoutAttributes.swift */; };
 		749B6849D2ECA3C8DDFB566911D8083D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		82CC4DE0A849546ABC9B5F35317C8485 /* MyLibrary139-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E685D3CC4B8712F3CC2B0D5536C62038 /* MyLibrary139-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FD99F4BE3FC92BDB69CDDE1C48C48ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
@@ -16,7 +18,6 @@
 		B46ADDB3F8C9F10E917878B284E0A1E7 /* Pods-MyLibrary139_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2775BD25338C1A67911B4CB6B879CEC2 /* Pods-MyLibrary139_Example-dummy.m */; };
 		C791CBC856A1653D105E181FB1D3BB3A /* Pods-MyLibrary139_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E66801042F102EC5774D533499B59B61 /* Pods-MyLibrary139_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F650B94097AC4D8B081669E8146C1D9F /* Pods-MyLibrary139_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 288783D2B95102FE24D09F3548756435 /* Pods-MyLibrary139_Tests-dummy.m */; };
-		F88D52FF3B98D52C177910385BB00D9C /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53922A3A04A3A2F2FF1502EF6E3361 /* ReplaceMe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,12 +47,13 @@
 		2775BD25338C1A67911B4CB6B879CEC2 /* Pods-MyLibrary139_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyLibrary139_Example-dummy.m"; sourceTree = "<group>"; };
 		288783D2B95102FE24D09F3548756435 /* Pods-MyLibrary139_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyLibrary139_Tests-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4013DBF324442D2000B0585C /* LNParallaxHeaderFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LNParallaxHeaderFlowLayout.swift; path = MyLibrary139/Classes/LNParallaxHeaderFlowLayout.swift; sourceTree = "<group>"; };
+		4013DBF424442D2000B0585C /* LNParallaxHeaderFlowLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LNParallaxHeaderFlowLayoutAttributes.swift; path = MyLibrary139/Classes/LNParallaxHeaderFlowLayoutAttributes.swift; sourceTree = "<group>"; };
 		446FCD9674A3FABED8FBEE4AE51B50D7 /* MyLibrary139-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MyLibrary139-Info.plist"; sourceTree = "<group>"; };
 		5CCA6637419D4FD7E070EE014177FCCE /* Pods-MyLibrary139_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyLibrary139_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6D13D84DFAA0B877C3757CC2649D76D9 /* Pods-MyLibrary139_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyLibrary139_Example-Info.plist"; sourceTree = "<group>"; };
 		7347361569B6163FE3E4B4F49951F060 /* Pods-MyLibrary139_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MyLibrary139_Tests.modulemap"; sourceTree = "<group>"; };
 		79DED048342937A7DBA8C398A94B2449 /* MyLibrary139.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MyLibrary139.modulemap; sourceTree = "<group>"; };
-		7C53922A3A04A3A2F2FF1502EF6E3361 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = MyLibrary139/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		9435440F42B392ABA20A69B04340CF18 /* Pods_MyLibrary139_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyLibrary139_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A9C347E75C652D3B5749610E291FBF1C /* Pods-MyLibrary139_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyLibrary139_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -163,7 +165,8 @@
 		90E4B64B04E099EDE3011A86E2F87F7E /* MyLibrary139 */ = {
 			isa = PBXGroup;
 			children = (
-				7C53922A3A04A3A2F2FF1502EF6E3361 /* ReplaceMe.swift */,
+				4013DBF324442D2000B0585C /* LNParallaxHeaderFlowLayout.swift */,
+				4013DBF424442D2000B0585C /* LNParallaxHeaderFlowLayoutAttributes.swift */,
 				EDF4C401E8486E63959179B55ACCABA4 /* Pod */,
 				DBC4E5171FC9AC61D1B363433A429EEC /* Support Files */,
 			);
@@ -318,7 +321,13 @@
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
 				TargetAttributes = {
+					31B4C24207AC39CD085DB757536ACEBA = {
+						LastSwiftMigration = 1130;
+					};
 					60DFC35AAD861CF8383C6C99C32D5085 = {
+						LastSwiftMigration = 1130;
+					};
+					774BE88ABC604113EE9D2F6E4DBA3D96 = {
 						LastSwiftMigration = 1130;
 					};
 				};
@@ -372,8 +381,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4013DBF924442D9300B0585C /* LNParallaxHeaderFlowLayout.swift in Sources */,
+				4013DBFA24442D9300B0585C /* LNParallaxHeaderFlowLayoutAttributes.swift in Sources */,
 				B439693DD9D7ED7034A278F36FD447DF /* MyLibrary139-dummy.m in Sources */,
-				F88D52FF3B98D52C177910385BB00D9C /* ReplaceMe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +457,7 @@
 			baseConfigurationReference = F67FDF78C6C0FC87AB2A7E5A63E48698 /* Pods-MyLibrary139_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -469,6 +480,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -481,6 +493,7 @@
 			baseConfigurationReference = 2557AE23C788A986D2A9E6E166DD4786 /* Pods-MyLibrary139_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -503,6 +516,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -514,6 +529,7 @@
 			baseConfigurationReference = 080F648F32CD9F14069672BE13ADAEE7 /* Pods-MyLibrary139_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -536,6 +552,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -547,6 +565,7 @@
 			baseConfigurationReference = 5CCA6637419D4FD7E070EE014177FCCE /* Pods-MyLibrary139_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -569,6 +588,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -1,2 +1,0 @@
-
-public let tennis = "Tennis"

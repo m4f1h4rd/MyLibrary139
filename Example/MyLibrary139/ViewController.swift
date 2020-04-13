@@ -1,24 +1,83 @@
 //
 //  ViewController.swift
-//  MyLibrary139
+//  LNParallaxHeaderExample
 //
-//  Created by OleksandrN on 04/10/2020.
-//  Copyright (c) 2020 OleksandrN. All rights reserved.
+//  Copyright © 2020 Lanars. All rights reserved.
+//  https://lanars.com/
 //
 
 import UIKit
+import MyLibrary139
 
-class ViewController: UIViewController {
+private enum Constants {
+    enum HeaderHeight {
+        static let indicative: CGFloat = 180.0
+        static let min: CGFloat = 64.0
+    }
+}
+
+final class ViewController: UIViewController {
+
+    @IBOutlet weak private var collectionView: UICollectionView!
+    
+    private let dataSource = Array(repeating: "Title", count: 100)
+    
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        prepareCollectionView()
+        prepareCollectionViewLayout()
     }
-
+    
 }
 
+// MARK: - UICollectionViewDataSource
+
+extension ViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let title = dataSource[indexPath.row]
+        let cell = collectionView.dequeueCell(LNCell.self, for: indexPath)
+        cell.configureCell(title)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard
+            LNParallaxHeaderFlowLayout.kind == kind,
+            let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LNHeader.className, for: indexPath) as? LNHeader
+        else { return UICollectionReusableView() }
+        
+        return cell
+    }
+    
+}
+
+// MARK: - Private
+
+private extension ViewController {
+    
+    func prepareCollectionView() {
+        collectionView.register(UINib(nibName: LNHeader.className, bundle: .main), forSupplementaryViewOfKind: LNParallaxHeaderFlowLayout.kind, withReuseIdentifier: LNHeader.className)
+        collectionView.register(dataSource: self, cellIDs: [LNCell.className])
+    }
+    
+    func prepareCollectionViewLayout() {
+        guard let layout = collectionView.collectionViewLayout as? LNParallaxHeaderFlowLayout else { return }
+        
+        let width = UIScreen.main.bounds.size.width
+        layout.indicativeSize = CGSize(width: width, height: Constants.HeaderHeight.indicative)
+        layout.minSize = CGSize(width: width, height: Constants.HeaderHeight.min)
+        layout.itemSize = CGSize(width: width, height: layout.itemSize.height)
+        layout.isAlwaysOnTop = true
+        
+        collectionView.collectionViewLayout = layout
+    }
+    
+}
