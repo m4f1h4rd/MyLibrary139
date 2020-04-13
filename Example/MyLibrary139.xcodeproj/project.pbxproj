@@ -15,6 +15,8 @@
 		4013DBF224442C9C00B0585C /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013DBED24442C9C00B0585C /* UICollectionView+Extension.swift */; };
 		4013DC0324442F6600B0585C /* LNHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4013DC0124442F6500B0585C /* LNHeader.swift */; };
 		4013DC0424442F6600B0585C /* LNHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4013DC0224442F6500B0585C /* LNHeader.xib */; };
+		4031784B2444AAB600B3C3ED /* ParallaxHeaderFlowLayout.png in Resources */ = {isa = PBXBuildFile; fileRef = 403178492444AAB600B3C3ED /* ParallaxHeaderFlowLayout.png */; };
+		4031784C2444AAB600B3C3ED /* Demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4031784A2444AAB600B3C3ED /* Demo.gif */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		4013DBED24442C9C00B0585C /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		4013DC0124442F6500B0585C /* LNHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LNHeader.swift; sourceTree = "<group>"; };
 		4013DC0224442F6500B0585C /* LNHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LNHeader.xib; sourceTree = "<group>"; };
+		403178492444AAB600B3C3ED /* ParallaxHeaderFlowLayout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ParallaxHeaderFlowLayout.png; sourceTree = "<group>"; };
+		4031784A2444AAB600B3C3ED /* Demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Demo.gif; sourceTree = "<group>"; };
 		40F0B0C12440A9C700C2C7EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4334822606DEA45AF468C091 /* Pods-MyLibrary139_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLibrary139_Example.debug.xcconfig"; path = "Target Support Files/Pods-MyLibrary139_Example/Pods-MyLibrary139_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		59BF0B07B7F6D3A4160D4311 /* Pods_MyLibrary139_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyLibrary139_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +115,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		403178482444AAB600B3C3ED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				403178492444AAB600B3C3ED /* ParallaxHeaderFlowLayout.png */,
+				4031784A2444AAB600B3C3ED /* Demo.gif */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +154,7 @@
 				4013DBE724442C9C00B0585C /* Cells */,
 				4013DC0024442F6500B0585C /* View */,
 				4013DBEB24442C9C00B0585C /* Extensions */,
+				403178482444AAB600B3C3ED /* Resources */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -295,7 +309,9 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				4013DBEF24442C9C00B0585C /* LNCell.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				4031784B2444AAB600B3C3ED /* ParallaxHeaderFlowLayout.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				4031784C2444AAB600B3C3ED /* Demo.gif in Resources */,
 				4013DC0424442F6600B0585C /* LNHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

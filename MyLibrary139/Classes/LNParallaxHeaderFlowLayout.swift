@@ -11,7 +11,7 @@ import UIKit
 private enum Constants {
     
     enum Height {
-        static let min: CGFloat = 44.0
+        static let min: CGFloat = 64.0
         static let indicative: CGFloat = 180.0
     }
     
