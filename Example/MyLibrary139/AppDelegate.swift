@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  MyLibrary139
+//  LNParallaxHeaderExample
 //
-//  Created by OleksandrN on 04/10/2020.
-//  Copyright (c) 2020 OleksandrN. All rights reserved.
+//  Copyright © 2020 Lanars. All rights reserved.
+//  https://lanars.com/
 //
 
 import UIKit
@@ -12,7 +12,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
