@@ -1,6 +1,6 @@
 # MyLibrary139
 
-[![iOS](https://img.shields.io/badge/pod-1.0.0-blue.svg)](https://cocoapods.org/pods/MyLibrary139)
+![Platform](http://img.shields.io/badge/platform-iOS-green.svg?style=flat) 
 [![Version](https://img.shields.io/cocoapods/v/MyLibrary139.svg?style=flat)](https://cocoapods.org/pods/MyLibrary139)
 ![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg)
 [![License](http://img.shields.io/badge/license-BSD-lightgrey.svg?style=flat)](https://github.com/OleksandrLan/MyLibrary139/blob/master/LICENSE)
