@@ -4,9 +4,7 @@
 ![Platform](http://img.shields.io/badge/platform-iOS-green.svg?style=flat)
 ![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg)
 [![License](http://img.shields.io/badge/license-BSD-lightgrey.svg?style=flat)](https://github.com/OleksandrLan/MyLibrary139/blob/master/LICENSE)
-
-
-![Preview](https://github.com/LanarsInc/LNParallaxTVCell/blob/master/DEMO.gif)
+![Preview](https://github.com/OleksandrLan/MyLibrary139/blob/master/Resources/Demo.gif)
 
 ## Example
 
