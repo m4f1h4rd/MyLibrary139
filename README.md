@@ -25,18 +25,15 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 ## Usage
 
-1. Import LNParallaxTVCell module to your class
+1. You can add LNParallaxHeaderFlowLayout  to CollectionViewFlowLayout
 
+2. Or you can programmatically create
+
+1) Import LNParallaxTVCell module to your class 
 ```swift
 import LNParallaxHeader
 ```
-
-2.
-
-1) You can add LNParallaxHeaderFlowLayout  to CollectionViewFlowLayout
-
-
-2) Or you can programmatically create
+2) Сustomize for yourself
 
 ```swift
 func prepareCollectionViewLayout() {
@@ -47,6 +44,8 @@ func prepareCollectionViewLayout() {
     collectionView.collectionViewLayout = layout
 }
 ```
+
+Also check out [an example project with parralax table view cell](https://github.com/LanarsInc/LNParallaxTVCell/tree/master/LNParallaxTVCellExample)
 
 ## License
 
