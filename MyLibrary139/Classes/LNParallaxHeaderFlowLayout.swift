@@ -23,7 +23,7 @@ private enum Constants {
     
 }
 
-public class LNParallaxHeaderFlowLayout: UICollectionViewFlowLayout {
+public final class LNParallaxHeaderFlowLayout: UICollectionViewFlowLayout {
     
     static public let kind = String(describing: LNParallaxHeaderFlowLayout.self)
 
@@ -43,6 +43,12 @@ public class LNParallaxHeaderFlowLayout: UICollectionViewFlowLayout {
     }
     
     // MARK: - Lifecycle
+    
+    convenience public init(minSize: CGSize, size: CGSize) {
+        self.init()
+        self.minSize = minSize
+        self.indicativeSize = size
+    }
     
     override public func initialLayoutAttributesForAppearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = super.initialLayoutAttributesForAppearingSupplementaryElement(ofKind: elementKind, at: elementIndexPath)

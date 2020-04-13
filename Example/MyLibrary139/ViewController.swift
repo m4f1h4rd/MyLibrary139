@@ -65,10 +65,10 @@ private extension ViewController {
         guard let layout = collectionView.collectionViewLayout as? LNParallaxHeaderFlowLayout else { return }
 
         let width = UIScreen.main.bounds.size.width
+        layout.minSize = CGSize(width: width, height: 44.0)
+        layout.indicativeSize = CGSize(width: width, height: 180.0)
         layout.itemSize = CGSize(width: width, height: layout.itemSize.height)
-        /*layout.minSize = CGSize(width: width, height: 64.0)
-        layout.indicativeSize = CGSize(width: width, height: 300.0)
-        layout.isAlwaysOnTop = true*/
+        layout.isAlwaysOnTop = true
 
         collectionView.collectionViewLayout = layout
     }
