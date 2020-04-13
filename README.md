@@ -1,11 +1,16 @@
 # MyLibrary139
 
-[![CI Status](https://img.shields.io/travis/OleksandrN/MyLibrary139.svg?style=flat)](https://travis-ci.org/OleksandrN/MyLibrary139)
+![iOS](https://img.shields.io/badge/pod-1.0.0-blue.svg)
+![Platform](http://img.shields.io/badge/platform-iOS-green.svg?style=flat)
+![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg)
 [![Version](https://img.shields.io/cocoapods/v/MyLibrary139.svg?style=flat)](https://cocoapods.org/pods/MyLibrary139)
-[![License](https://img.shields.io/cocoapods/l/MyLibrary139.svg?style=flat)](https://cocoapods.org/pods/MyLibrary139)
-[![Platform](https://img.shields.io/cocoapods/p/MyLibrary139.svg?style=flat)](https://cocoapods.org/pods/MyLibrary139)
+[![License](http://img.shields.io/badge/license-BSD-lightgrey.svg?style=flat)](https://github.com/OleksandrLan/MyLibrary139/blob/master/LICENSE)
+
+
+![Preview](https://github.com/LanarsInc/LNParallaxTVCell/blob/master/DEMO.gif)
 
 ## Example
+
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
@@ -45,7 +50,7 @@ func prepareCollectionViewLayout() {
 }
 ```
 
-Also check out [an example project with parralax table view cell](https://github.com/LanarsInc/LNParallaxTVCell/tree/master/LNParallaxTVCellExample)
+Also check out [an example project with parralax header view](https://github.com/OleksandrLan/MyLibrary139/tree/master/Example)
 
 ## License
 
